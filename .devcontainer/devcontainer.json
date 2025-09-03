@@ -1,10 +1,12 @@
 {
-  "name": "Ubuntu Dev Environment",
-  "build": {
-    "dockerfile": "Dockerfile"
+  "name": "Ubuntu 20.04 Dev",
+  "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu-20.04",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/node:1": { "version": "lts" },
+    "ghcr.io/devcontainers/features/python:1": { "version": "3.10" },
+    "ghcr.io/devcontainers/features/mongo:1": {}
   },
-  "forwardPorts": [22, 80, 8080, 8081, 5900, 5901, 8082, 9000, 9393],
-  "remoteUser": "vscode",
-  "postCreateCommand": "bash /post-create.sh",
-  "features": {}
+  "forwardPorts": [22,80,8080,8081,5900,5901,8082,9000,9393],
+  "postCreateCommand": "bash .devcontainer/post-create.sh"
 }
